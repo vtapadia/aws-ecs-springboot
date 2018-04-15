@@ -16,7 +16,7 @@ public class HelloUserController {
 
     @GetMapping("/hello/{user}")
     public Flux<Message> allMessages(@PathVariable String user) {
-        return Flux.just(new Message("Hello"), new Message(user));
+        return Flux.just(new Message("Hello"), new Message(user), new Message("world"));
     }
 
 }
