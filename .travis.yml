@@ -12,6 +12,7 @@ after_success:
   - eval $(aws ecr get-login --no-include-email --region eu-central-1) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
   - docker tag vtapadia/aws-ecs-springboot:latest 369256618572.dkr.ecr.eu-central-1.amazonaws.com/vtapadia/aws-ecs-springboot:latest
   - docker push 369256618572.dkr.ecr.eu-central-1.amazonaws.com/vtapadia/aws-ecs-springboot:latest
+  - aws ecs update-service --service aws-ecs-springboot-service --force-new-deployment
 env:
   global:
   - secure: qLQPKBgm6LPNkNmrdKqWPutvAK4qrgiptCfxrx6NQuLbI4XwzCBt8MiZa5cGS3Z0n4jSUeKxtXXtAOwbX9JDsWIB9F/t40/rPQFWyYj3pOnwJ1Ug0UZ2KXxrmEJSB1CNW6JQdqJA3mAaONV4BqsA7J7U83n3bY4EgOoIpSWdTI7SrshylSKsw6aFrvbfMeiQ+MZPJqi37vEyQUWICo5hGh7bFe4Lw6YHNwxqdU3lQNbfLFKdpw+oXdre0lXNL0Rc5dTClEej/31iH657LFHzt+AAQmov4Erl1tHEu6KV3w7gULqPEfQHt5Sb8ugWsJm6ajXTXj2JrDW1i3MSIz78sAnhtWPa0GWxdU3Cg1LJCjkcAZpHr51+txQwoL0OeR6sFbiMyoHlkEzZn6m9c4QF8V/jxtz+iPuTvsApdUD3Y2qYNktOqT5v5KwNt0rAOPkIJYWc6xTGmOzLbcADcR8rhFrBqhiVROVryvCNK9dJFPWYDvkkGGf23BbyVtKlcwLM0Wsi71vpew8B41ixkMgxHIwvFYF0jCd5jGQCdzticToguhl2KnQQtUJaIoS91CKgi4WwE68IUfOI9YSEALzUo65dmwVn3t567QVmyejoQIKxoizKFpWrTE2usaHoZrf0zDPB1dfRYPWsFV1AUgmFtXVqJ1KmdKEqS6sfaXVPZXA=
